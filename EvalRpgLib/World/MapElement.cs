@@ -40,7 +40,9 @@ namespace EvalRpgLib.World
         /// <param name="y">Position en Y de l'élément</param>
         public MapElement(Map map, int x, int y)
         {
-            // TODO
+            this.Map = map;
+            this.X = x;
+            this.Y = y;
         }
 
         /// <summary>
@@ -68,7 +70,7 @@ namespace EvalRpgLib.World
         /// <param name="content">Le contenu à ajouter</param>
         public void AddContent(IMapContent content)
         {
-            // TODO
+            
         }
 
         /// <summary>
