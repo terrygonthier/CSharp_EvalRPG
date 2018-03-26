@@ -8,13 +8,13 @@ namespace EvalRpgTests
     public class StuffTest
     {
         [TestMethod]
-        public void constructorOK(){
+        public void TestConstructorOK(){
             Stuff stuff = new Stuff("Awesome blade");
             Assert.AreEqual("Awesome blade", stuff.Name);
         }
 
         [TestMethod]
-        public void addAttributes() {
+        public void TestAddAttributes() {
             Stuff stuff = new Stuff("Awesome blade");
             AttributEffect attributEffect = new AttributEffect();
             attributEffect.Attribute = AttributeEnum.Intelligence;

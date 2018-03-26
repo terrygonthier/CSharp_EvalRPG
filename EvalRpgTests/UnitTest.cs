@@ -31,5 +31,29 @@ namespace EvalRpgTests
 
             Assert.IsTrue(A.Attack(B));
         }
+
+        [TestMethod]
+        public void TestTakeDamage(){
+            Unit A = new Unit("test_A", null, null, new BasicSword());
+            A.StatManager = new StatManager(A, StatHelper.GetDefaultAttributes(), StatHelper.GetDefaultComputer());
+            A.StatManager.Update();
+            Assert.AreEqual(700, A.TakeDamage(1000, false, A));
+        }
+
+        [TestMethod]
+        public void TestGetCurrentStat() {
+            Unit A = new Unit("test_A", null, null, new BasicSword());
+            A.StatManager = new StatManager(A, StatHelper.GetDefaultAttributes(), StatHelper.GetDefaultComputer());
+            A.StatManager.Update();
+            Assert.AreEqual(1100, A.GetCurrentStat(StatisticsEnum.Health));
+        }
+
+        [TestMethod]
+        public void TestGetCurrentAttribute() {
+            Unit A = new Unit("test_A", null, null, new BasicSword());
+            A.StatManager = new StatManager(A, StatHelper.GetDefaultAttributes(), StatHelper.GetDefaultComputer());
+            A.StatManager.Update();
+            Assert.AreEqual(100, A.GetCurrentAttribute(AttributeEnum.Intelligence));
+        }
     }
 }
