@@ -70,7 +70,7 @@ namespace EvalRpgLib.World
         /// <param name="content">Le contenu à ajouter</param>
         public void AddContent(IMapContent content)
         {
-            
+            ContentList.Add(content);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace EvalRpgLib.World
         /// <param name="content">Le contenu à retirer</param>
         public void RemoveContent(IMapContent content)
         {
-            // TODO
+            ContentList.Remove(content);
         }
 
 

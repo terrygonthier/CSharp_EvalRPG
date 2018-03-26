@@ -1,4 +1,5 @@
 ﻿using System;
+using EvalRpgLib.Exemples;
 using EvalRpgLib.Helpers;
 
 namespace EvalRpgLib.World
@@ -32,7 +33,21 @@ namespace EvalRpgLib.World
         /// <param name="height">Hauteur spécifique de la carte</param>
         public Map(int width, int height)
         {
-            // TODO création de la matrice
+            if (width == 10 && height == 10)
+            {
+                Matrix = new MapElement[HEIGHT, WIDTH];
+                // Matrix[2, 2].AddContent(new Hero("Superman"));
+            }
+            else
+            {
+                Matrix = new MapElement[height, width];
+                // Matrix[2, 2].AddContent(new Hero("Superman"));
+            }
+            //for (int i = 0; i < width; i++){
+            //    for (int j = 0; j < height; j++) {
+            //        Matrix[i, j].AddContent(new Hero("Un hero"));
+            //    }
+            //}
 
             // TODO création de chaque élément
 
@@ -69,8 +84,12 @@ namespace EvalRpgLib.World
         /// <returns>Vrai si dans l'intervale, sino faux</returns>
         public bool IndexesInMatrix(int i, int j)
         {
-            // TODO
-            return false;
+            if (i < HEIGHT && j < WIDTH){
+                return true;
+            } else {
+                return false;
+            }
+
         }
 
 
