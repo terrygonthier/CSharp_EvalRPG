@@ -43,6 +43,7 @@ namespace EvalRpgLib.World
             this.Map = map;
             this.X = x;
             this.Y = y;
+            ContentList = new List<IMapContent>();
         }
 
         /// <summary>
@@ -70,7 +71,11 @@ namespace EvalRpgLib.World
         /// <param name="content">Le contenu à ajouter</param>
         public void AddContent(IMapContent content)
         {
-            ContentList.Add(content);
+            if (content != null)
+            {
+                content.Location = this;
+                ContentList.Add(content);
+            }
         }
 
         /// <summary>

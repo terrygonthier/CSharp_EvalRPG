@@ -1,11 +1,12 @@
 ﻿using EvalRpgLib.Helpers;
+using EvalRpgLib.World;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace EvalRpgLib.Beings
 {
-    public class Unit
+    public class Unit : IMapContent
     {
         public string Name { get; set; }
         public Dictionary<ArmorType, Armor> Equipement { get; set; }
@@ -14,6 +15,7 @@ namespace EvalRpgLib.Beings
         public List<Stuff> Bag { get; set; }
         public List<Skill> Skills { get; set; }
         public int Level { get; set; }
+        public MapElement Location { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Unit(
             string name,

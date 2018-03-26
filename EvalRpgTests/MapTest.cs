@@ -16,7 +16,7 @@ namespace EvalRpgTests
             Assert.AreEqual(Map.HEIGHT, map.Matrix.GetLength(0));
 
             // vérification du contenu
-            // Assert.IsNotNull(map[2, 2]);
+            Assert.IsNotNull(map[2, 2]);
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace EvalRpgTests
             Assert.AreEqual(6, map.Matrix.GetLength(0));
 
             // vérification du contenu
-            // Assert.IsNotNull(map[2, 2]);
+            Assert.IsNotNull(map[2, 2]);
         }
 
         [TestMethod]

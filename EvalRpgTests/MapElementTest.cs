@@ -67,6 +67,7 @@ namespace EvalRpgTests
             Map map = new Map(3, 3);
             MapElement element = map[1, 1];
             IMapContent content = new Hero("foo");
+            content.Location = element;
 
             element.AddContent(content);
 
@@ -77,7 +78,7 @@ namespace EvalRpgTests
             MapElement otherElement = map[1, 2];
             otherElement.AddContent(content);
 
-            Assert.AreEqual(0, element.ContentList.Count);
+            Assert.AreEqual(1, element.ContentList.Count);
             Assert.AreEqual(otherElement, content.Location);
         }
 

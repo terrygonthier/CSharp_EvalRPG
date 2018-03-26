@@ -30,8 +30,6 @@ namespace EvalRpgTests
             A.StatManager.Update();
             B.StatManager.Update();
             A.Skills.Add(new HeavyStrike(A));
-            // Assert.IsTrue(true);
-            // Skill sk = new Skill(A);
             Assert.IsTrue(A.Skills[0].Cast(B));
         }
 

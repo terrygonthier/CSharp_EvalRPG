@@ -1,4 +1,5 @@
 ﻿using System;
+using EvalRpgLib.Beings;
 using EvalRpgLib.Exemples;
 using EvalRpgLib.Helpers;
 
@@ -36,12 +37,23 @@ namespace EvalRpgLib.World
             if (width == 10 && height == 10)
             {
                 Matrix = new MapElement[HEIGHT, WIDTH];
-                // Matrix[2, 2].AddContent(new Hero("Superman"));
+                for (int i = 0; i < HEIGHT; i++){
+                    for (int j = 0; j < WIDTH; j++) {
+                        Matrix[i, j] = new MapElement(this, i, j);
+                    }
+                }
+
             }
             else
             {
                 Matrix = new MapElement[height, width];
-                // Matrix[2, 2].AddContent(new Hero("Superman"));
+                for (int i = 0; i < height; i++)
+                {
+                    for (int j = 0; j < width; j++)
+                    {
+                        Matrix[i, j] = new MapElement(this, i, j);
+                    }
+                }
             }
             //for (int i = 0; i < width; i++){
             //    for (int j = 0; j < height; j++) {
@@ -84,7 +96,7 @@ namespace EvalRpgLib.World
         /// <returns>Vrai si dans l'intervale, sino faux</returns>
         public bool IndexesInMatrix(int i, int j)
         {
-            if (i < HEIGHT && j < WIDTH){
+            if (i < Matrix.GetLength(0) && j < Matrix.GetLength(1) && i >= 0 && j >= 0){
                 return true;
             } else {
                 return false;
