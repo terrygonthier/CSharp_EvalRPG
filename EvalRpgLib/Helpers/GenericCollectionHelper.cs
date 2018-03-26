@@ -15,7 +15,16 @@ namespace EvalRpgLib.Helpers
         /// <param name="action">L'action à appeler</param>
         public static void ForEachWithIndexes<T>(this T[,] matrix, Action<int,int> action)
         {
-            // TODO
+            int lignes = matrix.GetLength(0);
+            int colones = matrix.GetLength(1);
+
+            for (int i = 0; i < lignes; i++)
+            {
+                for (int j = 0; j < colones; j++)
+                {
+                    action(i, j);
+                }
+            }
         }
 
         /// <summary>
@@ -26,7 +35,16 @@ namespace EvalRpgLib.Helpers
         /// <param name="action">L'action à appeler</param>
         public static void ForEachWithElement<T>(this T[,] matrix, Action<T> action)
         {
-            // TODO
+            int lignes = matrix.GetLength(0);
+            int colones = matrix.GetLength(1);
+
+            for (int i = 0; i < lignes; i++)
+            {
+                for (int j = 0; j < colones; j++)
+                {
+                    action(matrix[i, j]);
+                }
+            }
         }
 
         /// <summary>
