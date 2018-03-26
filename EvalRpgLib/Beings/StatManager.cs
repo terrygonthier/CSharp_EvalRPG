@@ -79,7 +79,7 @@ namespace EvalRpgLib.Beings
             }
 
             // répercution sur les caractéristiques courantes
-            CurrentStatistics.Clear();
+            CurrentStatistics = BaseStatistics;
         }
 
         /// <summary>

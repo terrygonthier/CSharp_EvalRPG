@@ -28,7 +28,7 @@ namespace EvalRpgLib.Beings
 
             Bag = new List<Stuff>();
             Skills = new List<Skill>();
-            Level = 1;
+            Level = 100;
         }
 
         public void UpdateStats()
