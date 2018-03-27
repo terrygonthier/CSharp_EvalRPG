@@ -67,34 +67,22 @@ namespace EvalRpgLib.World
             if(direction == DirectionEnum.Est){
                 if (Y+1 < this.Map.Matrix.GetLength(1))
                 {
-                    if (Map.Matrix[X, Y+1].ContentList.Count != 0)
-                    {
-                        return (EvalRpgLib.World.MapElement)Map.Matrix[X, Y+1].ContentList[0];
-                    }
+                    return (EvalRpgLib.World.MapElement)Map.Matrix[X, Y+1];
                 }
             } else if (direction == DirectionEnum.West) {
                 if (Y-1 >= 0)
                 {
-                    if (Map.Matrix[X, Y-1].ContentList.Count != 0)
-                    {
-                        return (EvalRpgLib.World.MapElement)Map.Matrix[X, Y-1].ContentList[0];
-                    }
+                    return (EvalRpgLib.World.MapElement)Map.Matrix[X, Y-1];
                 }
             } else if (direction == DirectionEnum.South) {
                 if (X+1 < Map.Matrix.GetLength(0))
                 {
-                    if (Map.Matrix[X+1, Y].ContentList.Count != 0)
-                    {
-                        return (EvalRpgLib.World.MapElement)Map.Matrix[X+1, Y].ContentList[0];
-                    }
+                    return (EvalRpgLib.World.MapElement)Map.Matrix[X+1, Y];
                 }
             } else if (direction == DirectionEnum.North) {
                 if (X-1 >= 0)
                 {
-                    if (Map.Matrix[this.X-1, this.Y].ContentList.Count != 0)
-                    {
-                        return (EvalRpgLib.World.MapElement)Map.Matrix[X-1, Y].ContentList[0];
-                    }
+                    return (EvalRpgLib.World.MapElement)Map.Matrix[X-1, Y];
                 }
             }
             return null;
