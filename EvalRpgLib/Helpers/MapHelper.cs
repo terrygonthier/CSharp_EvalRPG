@@ -15,7 +15,18 @@ namespace EvalRpgLib.Helpers
         /// <returns>un tableau d'entier avec : 0 => X, 1 => Y</returns>
         public static int[] GetDirectionOffset(DirectionEnum direction)
         {
-            // TODO
+            if(direction == DirectionEnum.North) {
+                return new int[] { -1 , 0 };
+            } else if (direction == DirectionEnum.Est)
+            {
+                return new int[] { 0, 1 };
+            } else if (direction == DirectionEnum.West)
+            {
+                return new int[] { 0, -1 };
+            } else if (direction == DirectionEnum.South)
+            {
+                return new int[] { 1, 0 };
+            }
             return new int[] { 0, 0 };
         }
 

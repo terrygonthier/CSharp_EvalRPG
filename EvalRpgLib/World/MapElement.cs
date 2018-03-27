@@ -52,10 +52,9 @@ namespace EvalRpgLib.World
         /// </summary>
         public void SearchNeighbors()
         {
-            Neighbors.Add(DirectionEnum.Est, GetNeighbour(DirectionEnum.Est));
-            Neighbors.Add(DirectionEnum.West, GetNeighbour(DirectionEnum.West));
-            Neighbors.Add(DirectionEnum.South, GetNeighbour(DirectionEnum.South));
-            Neighbors.Add(DirectionEnum.North, GetNeighbour(DirectionEnum.North));
+            foreach(DirectionEnum Direction in Enum.GetValues(typeof(DirectionEnum))){
+                Neighbors.Add(Direction, GetNeighbour(Direction));
+            }
         }
 
         /// <summary>
@@ -109,6 +108,11 @@ namespace EvalRpgLib.World
         {
             if (content != null)
             {
+                if(content.Location != null){
+                    if(content.Location.X != this.X || content.Location.Y != this.Y) {
+                        content.Location.RemoveContent(content);
+                    }
+                }
                 content.Location = this;
                 ContentList.Add(content);
             }
