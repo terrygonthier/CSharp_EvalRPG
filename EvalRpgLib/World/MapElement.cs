@@ -44,6 +44,7 @@ namespace EvalRpgLib.World
             this.X = x;
             this.Y = y;
             ContentList = new List<IMapContent>();
+            Neighbors = new Dictionary<DirectionEnum, MapElement>();
         }
 
         /// <summary>
@@ -51,7 +52,10 @@ namespace EvalRpgLib.World
         /// </summary>
         public void SearchNeighbors()
         {
-            // TODO
+            Neighbors.Add(DirectionEnum.Est, GetNeighbour(DirectionEnum.Est));
+            Neighbors.Add(DirectionEnum.West, GetNeighbour(DirectionEnum.West));
+            Neighbors.Add(DirectionEnum.South, GetNeighbour(DirectionEnum.South));
+            Neighbors.Add(DirectionEnum.North, GetNeighbour(DirectionEnum.North));
         }
 
         /// <summary>
@@ -61,7 +65,39 @@ namespace EvalRpgLib.World
         /// <returns>Un élément de carte, null si aucun voisin</returns>
         public MapElement GetNeighbour(DirectionEnum direction)
         {
-            // TODO
+            if(direction == DirectionEnum.Est){
+                if (Y+1 < this.Map.Matrix.GetLength(1))
+                {
+                    if (Map.Matrix[X, Y+1].ContentList.Count != 0)
+                    {
+                        return (EvalRpgLib.World.MapElement)Map.Matrix[X, Y+1].ContentList[0];
+                    }
+                }
+            } else if (direction == DirectionEnum.West) {
+                if (Y-1 >= 0)
+                {
+                    if (Map.Matrix[X, Y-1].ContentList.Count != 0)
+                    {
+                        return (EvalRpgLib.World.MapElement)Map.Matrix[X, Y-1].ContentList[0];
+                    }
+                }
+            } else if (direction == DirectionEnum.South) {
+                if (X+1 < Map.Matrix.GetLength(0))
+                {
+                    if (Map.Matrix[X+1, Y].ContentList.Count != 0)
+                    {
+                        return (EvalRpgLib.World.MapElement)Map.Matrix[X+1, Y].ContentList[0];
+                    }
+                }
+            } else if (direction == DirectionEnum.North) {
+                if (X-1 >= 0)
+                {
+                    if (Map.Matrix[this.X-1, this.Y].ContentList.Count != 0)
+                    {
+                        return (EvalRpgLib.World.MapElement)Map.Matrix[X-1, Y].ContentList[0];
+                    }
+                }
+            }
             return null;
         }
 

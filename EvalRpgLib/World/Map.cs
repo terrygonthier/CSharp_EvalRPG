@@ -55,15 +55,15 @@ namespace EvalRpgLib.World
                     }
                 }
             }
-            //for (int i = 0; i < width; i++){
-            //    for (int j = 0; j < height; j++) {
-            //        Matrix[i, j].AddContent(new Hero("Un hero"));
-            //    }
-            //}
 
-            // TODO création de chaque élément
 
-            // TODO récupération des éléments voisins pour chaque élément
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    Matrix[i, j].SearchNeighbors();
+                }
+            }
             
         }
 
